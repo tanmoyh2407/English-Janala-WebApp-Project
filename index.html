@@ -79,10 +79,13 @@
 
                 </a>
             </div>
+            <!-- Navbar Button part -->
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 flex gap-4">
-                    <li><a href="#" class="btn btn-outline btn-primary"><i
-                                class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                    <li>
+                        <a href="#" class="btn btn-outline btn-primary"><i
+                                class="fa-solid fa-circle-question"></i>FAQ</a>
+                    </li>
                     <li>
                         <a href="#" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>Learn</a>
                     </li>
@@ -105,17 +108,17 @@
                 </p>
                 <div>
                     <!-- Name Input -->
-                <input type="text" placeholder="Enter Your Name"
-                    class="px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"><br>
+                    <input type="text" placeholder="Enter Your Name"
+                        class="px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"><br>
 
-                <!-- Password Input -->
-                <input type="password" placeholder="Enter Your Pass"
-                    class="px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"><br>
+                    <!-- Password Input -->
+                    <input type="password" placeholder="Enter Your Pass"
+                        class="px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"><br>
 
-                <!-- Button -->
-                <button class="py-2 px-5 text-white bg-indigo-600 rounded-md hover:bg-indigo-800  transition">
-                    Get Started
-                </button>
+                    <!-- Button -->
+                    <button class="py-2 px-5 text-white bg-indigo-600 rounded-md hover:bg-indigo-800  transition">
+                        Get Started
+                    </button>
                 </div>
 
             </div>
@@ -130,9 +133,11 @@
     <main>
         <!-- Lesson dynamically button section Start -->
         <section>
-            <h1 class="text-3xl m-4 text-[#18181B] font-bold text-center"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
-            <div id="lesson-container">
-                
+            <h1 class="text-3xl m-4 text-[#18181B] font-bold text-center"><span class="text-[#00BCFF]">Let's</span>
+                Learn Vocabularies</h1>
+
+            <div id="level-container" class="flex gap-4 flex-wrap justify-center">
+
             </div>
         </section>
         <!-- Lesson dynamically button section End -->
@@ -140,6 +145,11 @@
     <footer>
 
     </footer>
+
+
+
+    <!-- JavaScript Files -->
+    <script src="./script/index.js"></script>
 </body>
 
 </html>
