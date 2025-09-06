@@ -10,7 +10,7 @@ const removeActive = () => {
     lessonButtons.forEach((btn) => {
         btn.classList.remove("active");
     });
-}
+};
 
 /*
 UI te data dekhanor jnno amra 4 ta step follow kore thaki
@@ -31,7 +31,56 @@ const loadLevelWord = (id) => {
             clickBtn.classList.add("active"); //add active class.
             displayLevelWord(data.data);
         });
-}
+};
+
+const loadWordDetail = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`;
+    // console.log(url);
+    const res = await fetch(url);
+    const details = await res.json();
+    displayWordDetails(details.data);
+};
+
+// {
+//     "word": "Fascinate",
+//     "meaning": "মুগ্ধ করা",
+//     "pronunciation": "ফ্যাসিনেট",
+//     "level": 5,
+//     "sentence": "The magician's tricks fascinate the audience.",
+//     "points": 4,
+//     "partsOfSpeech": "verb",
+//     "synonyms": [
+//         "captivate",
+//         "charm",
+//         "enchant"
+//     ],
+//     "id": 6
+// }
+
+const displayWordDetails = (word) => {
+    console.log(word);
+    const detailsBox = document.getElementById("details-container");
+    detailsBox.innerHTML = `
+                    <div class="">
+                        <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i> : ${word.pronunciation})</h2>
+                    </div>
+                    <div class="">
+                        <h2 class="font-bold">Meaning</h2>
+                        <p>${word.meaning}</p>
+                    </div>
+                    <div class="">
+                        <h2 class="font-bold">Example</h2>
+                        <p>${word.sentence}</p>
+                    </div>
+                    <div class="">
+                        <h2 class="font-bold">Synonym</h2>
+                        <span class="btn">Syn1</span>
+                        <span class="btn">Syn1</span>
+                        <span class="btn">Syn1</span>
+                    </div>
+                            `;
+    document.getElementById("word_modal").showModal();
+};
 
 const displayLevelWord = (words) => {
     const wordContainer = document.getElementById("word-container");
@@ -64,7 +113,7 @@ const displayLevelWord = (words) => {
                 <p class="font-semibold">Meaning / Pronunciation</p>
                 <div class="hind-siliguri font-medium text-2xl">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : " Pronunciation পাওয়া যায়নি"}"</div>
                 <div class="flex justify-between items-center">
-                    <button onclick="my_modal_5.showModal()" class="btn bg-[rgb(26,145,255)]/10 hover:bg-[rgb(26,145,255)]/40"><i class="fa-solid fa-circle-info"></i></button>
+                    <button onclick="loadWordDetail(${word.id})" class="btn bg-[rgb(26,145,255)]/10 hover:bg-[rgb(26,145,255)]/40"><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn bg-[rgb(26,145,255)]/10 hover:bg-[rgb(26,145,255)]/40"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
