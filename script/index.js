@@ -1,3 +1,8 @@
+const createElements = (arr) => {
+    const htmlElements = arr.map((el) => `<span class = "btn">${el}</span>`);
+    return htmlElements.join(" ");
+};
+
 const loadLessons = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all") //promise of response
         .then(res => res.json()) //promise of json dada
@@ -58,7 +63,7 @@ const loadWordDetail = async (id) => {
 // }
 
 const displayWordDetails = (word) => {
-    console.log(word);
+    // console.log(word);
     const detailsBox = document.getElementById("details-container");
     detailsBox.innerHTML = `
                     <div class="">
@@ -74,9 +79,7 @@ const displayWordDetails = (word) => {
                     </div>
                     <div class="">
                         <h2 class="font-bold">Synonym</h2>
-                        <span class="btn">Syn1</span>
-                        <span class="btn">Syn1</span>
-                        <span class="btn">Syn1</span>
+                        <div class="">${createElements(word.synonyms)}</div>
                     </div>
                             `;
     document.getElementById("word_modal").showModal();
